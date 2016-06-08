@@ -1,18 +1,18 @@
 /**
  * Created by jose.hillers on 08/06/2016.
  */
-var THREE = require("three");
-var FileLoader = require("../file-loader/FileLoader");
+import {TextureLoader} from "three"
+import FileLoader from "../file-loader/FileLoader"
 
-function TextureCache() {
-    this.load = function (handler) {
+export default class Preloader {
+    load(handler) {
         FileLoader.load("./textures/texture-list.json", function () {
             var json = JSON.parse(this.responseText);
             var files = json.files;
-            files = files.filter(filterJSONFiles);
+            files = files.filter(item =>item.indexOf(".json") < 0);
             var totalFiles = files.length;
             var loadedFiles = 0;
-            var loader = new THREE.TextureLoader();
+            var loader = new TextureLoader();
 
             files.forEach(function (item) {
                 loader.load(item, function () {
@@ -25,8 +25,4 @@ function TextureCache() {
 
         });
     };
-    function filterJSONFiles(item) {
-        return item.indexOf(".json") < 0;
-    }
 }
-module.exports = TextureCache;

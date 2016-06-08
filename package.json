@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate-webpack-gulp-three",
+  "name": "boilerplate-webpack-gulp-es6-three",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jhillers/boilerplate-webpack-gulp-three.git"
+    "url": "git+https://github.com/jhillers/boilerplate-webpack-gulp-es6-three.git"
   },
   "keywords": [
     "threejs",
@@ -18,10 +18,13 @@
   "author": "jose.hillers",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jhillers/boilerplate-webpack-gulp-three/issues"
+    "url": "https://github.com/jhillers/boilerplate-webpack-gulp-es6-three/issues"
   },
-  "homepage": "https://github.com/jhillers/boilerplate-webpack-gulp-three#readme",
+  "homepage": "https://github.com/jhillers/boilerplate-webpack-gulp-es6-three#readme",
   "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
     "file-loader": "^0.8.5",
     "gulp": "^3.9.1",
     "three": "^0.77.1",

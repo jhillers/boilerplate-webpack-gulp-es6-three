@@ -1,17 +1,18 @@
 /**
  * Created by jose.hillers on 07/06/2016.
  */
-var THREE = require("three");
+import {Mesh,MeshBasicMaterial,TextureLoader,BoxGeometry} from "three"
 
-module.exports = function () {
-    var geometry = new THREE.BoxGeometry(1, 1, 1);
-    var loader = new THREE.TextureLoader();
-    loader.setPath('textures/');
+export default class Cube extends Mesh {
 
-    var imageURL = 'checked-checkbox-512.png';
+    constructor() {
+        var geometry = new BoxGeometry(1, 1, 1);
+        var loader = new TextureLoader();
+        loader.setPath('textures/');
+        var imageURL = 'checked-checkbox-512.png';
+        var texture = loader.load(imageURL);
+        var material = new MeshBasicMaterial({color: 0xffffff, map: texture});
 
-    var texture = loader.load(imageURL);
-    var material = new THREE.MeshBasicMaterial({color: 0xffffff, map: texture});
-    return new THREE.Mesh(geometry, material);
-
-};
+        super(geometry, material);
+    }
+}

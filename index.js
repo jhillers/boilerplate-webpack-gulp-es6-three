@@ -2,9 +2,12 @@
  * Created by jose.hillers on 06/06/2016.
  */
 
-var app = require("./src/app.js");
+import App from "./src/app.js"
 
-module.exports = function(){
-    console.log("Initialising application.");
-    app.init();
-}();
+class Application {
+    constructor() {
+        console.log("Initialising application.");
+        var app = new App();
+    }
+}
+export default new Application();
