@@ -1,0 +1,13 @@
+body {
+    margin:0;
+}
+
+.checkBox {
+    background: url("../textures/icon-checkbox-square.png");
+    width:32px;
+    height:32px;
+}
+canvas{
+    width: 100%;
+    height: 100%;
+}

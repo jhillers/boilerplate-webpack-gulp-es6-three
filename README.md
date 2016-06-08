@@ -1,2 +1,7 @@
-# boilerplate-webpack-gulp-three
-Boilerplate for three.js using webpack, npm and gulp!
+# boilerplate-webpack-gulp-three#
+### to Run: ###
+### Download dependencies ###
+`npm install`
+### and Run default gulp task ###
+`gulp`
+

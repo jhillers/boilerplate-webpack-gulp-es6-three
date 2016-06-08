@@ -1,0 +1,32 @@
+{
+  "name": "boilerplate-webpack-gulp-three",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhillers/boilerplate-webpack-gulp-three.git"
+  },
+  "keywords": [
+    "threejs",
+    "gulp",
+    "webpack"
+  ],
+  "author": "jose.hillers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jhillers/boilerplate-webpack-gulp-three/issues"
+  },
+  "homepage": "https://github.com/jhillers/boilerplate-webpack-gulp-three#readme",
+  "devDependencies": {
+    "file-loader": "^0.8.5",
+    "gulp": "^3.9.1",
+    "three": "^0.77.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-stream": "^3.2.0"
+  }
+}
