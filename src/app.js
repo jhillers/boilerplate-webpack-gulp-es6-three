@@ -15,6 +15,7 @@ module.exports = {
 
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
+        window.addEventListener('resize', onWindowResize, false);
         camera.position.z = 5;
 
         preloader.load(function () {
@@ -31,5 +32,11 @@ module.exports = {
             renderer.render(scene, camera);
         }
 
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
     }
 };
