@@ -34,7 +34,6 @@ gulp.task("file-list", function () {
 
     var dir = './textures';
     var results = getAllFilesFromFolder(dir);
-    console.log("done", results);
     var path = dir + "/texture-list.json";
     filesystem.writeFileSync(path, '{\"files\":[' + results + "]}", 'utf8');
 });
