@@ -1,15 +1,19 @@
 var gulp = require('gulp');
 var filesystem = require("fs");
-var webpack = require('webpack-stream');
+var webpack = require('webpack');
 var webpackConfigFile = require('./webpack.config.js');
-
+var WebpackDevServer = require("webpack-dev-server");
 
 gulp.task('default', ["file-list", "webpack", "css", "textures", "html"]);
 
-gulp.task('webpack', function () {
-    return gulp.src('./index.js')
-        .pipe(webpack(webpackConfigFile))
-        .pipe(gulp.dest('out/js/'));
+gulp.task("webpack", function (callback) {
+    // run webpack
+    webpack(webpackConfigFile, function (err, stats) {
+        if (err) {
+            console.log("error running webpack\n", err.message);
+        }
+    });
+    callback();
 });
 
 gulp.task('css', function () {
@@ -50,3 +54,23 @@ function getAllFilesFromFolder(dir) {
     });
     return results;
 }
+
+gulp.task("webpack-dev-server", function (callback) {
+
+
+    var config = Object.create(webpackConfigFile);
+
+    new WebpackDevServer(webpack(config), {
+        watch:false,
+        hot:false,
+        contentBase: "out/",
+        publicPath: config.output.publicPath,
+        stats: {
+            colors: true
+        }
+    }).listen(8080, "localhost", function (err) {
+        if (err) console.log("Error running server", err.message);
+    });
+    callback();
+});
+// server.close();

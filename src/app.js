@@ -30,8 +30,8 @@ export default class App {
     }
 
     render() {
-        this.cube.rotation.x += 0.02;
-        this.cube.rotation.y += 0.02;
+        this.cube.rotation.x += 0.03;
+        this.cube.rotation.y += 0.03;
 
         requestAnimationFrame(this.render.bind(this));
         this.renderer.render(this.scene, this.camera);

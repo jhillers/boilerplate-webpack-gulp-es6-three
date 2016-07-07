@@ -1,9 +1,16 @@
+var path = require("path");
+
 module.exports = {
-    entry: "./index.js",
-    output: {
-        path: __dirname,
-        filename: "app.js"
+    entry: {
+        app: ["./index.js"]
     },
+    output: {
+        path: path.join(__dirname, "./out/js/"),
+        publicPath: "/out/js/",
+        filename: "[name].js"
+    },
+    watch: true,
+
     module: {
         loaders: [
             {
@@ -24,7 +31,7 @@ module.exports = {
                 loader: "babel-loader",
                 query: {
                     presets: ['es2015']
-            }
+                }
             }
 
         ]

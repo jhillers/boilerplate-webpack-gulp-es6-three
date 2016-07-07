@@ -12,7 +12,6 @@ export default class Cube extends Mesh {
         var imageURL = 'checked-checkbox-512.png';
         var texture = loader.load(imageURL);
         var material = new MeshBasicMaterial({color: 0xffffff, map: texture});
-
         super(geometry, material);
     }
 }
