@@ -8,4 +8,7 @@
 `gulp webpack-dev-server`
 ### On another window, run default gulp task ###
 `gulp`
-You can now go to localhost:8080/webpack-dev-server/index.html
+
+You can now go to 
+
+<http://localhost:8080/webpack-dev-server/index.html>
