@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var webpackConfigFile = require('./webpack.config.js');
 var WebpackDevServer = require("webpack-dev-server");
 
-gulp.task('default', ["file-list", "webpack", "css", "textures", "html"]);
+gulp.task('default', ["file-list", "css", "textures", "html", "webpack-dev-server"]);
 
 gulp.task("webpack", function (callback) {
     // run webpack
@@ -12,8 +12,8 @@ gulp.task("webpack", function (callback) {
         if (err) {
             console.log("error running webpack\n", err.message);
         }
+        callback();
     });
-    callback();
 });
 
 gulp.task('css', function () {
@@ -38,6 +38,11 @@ gulp.task("file-list", function () {
     filesystem.writeFileSync(path, '{\"files\":[' + results + "]}", 'utf8');
 });
 
+/**
+ * Creates an array of a list of files from a given folder.
+ * @param dir
+ * @returns {Array}
+ */
 function getAllFilesFromFolder(dir) {
     var results = [];
 
@@ -56,13 +61,11 @@ function getAllFilesFromFolder(dir) {
 
 gulp.task("webpack-dev-server", function (callback) {
 
-
     var config = Object.create(webpackConfigFile);
 
     new WebpackDevServer(webpack(config), {
-        watch:false,
-        hot:false,
-        contentBase: "out/",
+        hot: true,
+        contentBase: ".",
         publicPath: config.output.publicPath,
         stats: {
             colors: true

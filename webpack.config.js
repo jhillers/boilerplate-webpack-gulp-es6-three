@@ -9,8 +9,6 @@ module.exports = {
         publicPath: "/out/js/",
         filename: "[name].js"
     },
-    watch: true,
-
     module: {
         loaders: [
             {
